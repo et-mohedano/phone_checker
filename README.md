@@ -7,7 +7,7 @@ Script to validate a set of phone numbers from xlsx file
 You need installed:
 
 Python 3.X\
-pandas 1.4.3\
+pandas 1.4.3
 
 ## Before run
 
