@@ -14,8 +14,8 @@ validnumbers = []
 Invalidnumbers = []
 numbers_list = dataFrame['numbers']
 msg_to_file = ""
-msg_to_file = f"Total of phone numbers: {len(numbers_list)}\n"
-msg_to_file = f"Total of phone duplicate numbers: {len(numbers_list) - len(list(set(numbers_list)))}\n"
+msg_to_file += f"Total of phone numbers: {len(numbers_list)}\n"
+msg_to_file += f"Total of phone duplicate numbers: {len(numbers_list) - len(list(set(numbers_list)))}\n"
 numbers_list = list(set(numbers_list))
 print("Process started")
 for numberIn in numbers_list:
@@ -31,7 +31,7 @@ df.to_excel(filepath, index=False)
 filepath = f'bd_cleaned_invalid.xlsx'
 df = pd.DataFrame(zip(Invalidnumbers), columns=["Invalid numbers"])
 df.to_excel(filepath, index=False)
-msg_to_file = f"Valid numbers: {len(validnumbers)}, Invalid numbers: {len(Invalidnumbers)}"
+msg_to_file += f"Valid numbers: {len(validnumbers)}, Invalid numbers: {len(Invalidnumbers)}"
 print("Process finished")
 with open('overview.txt', 'w') as f:
-    f.write('Create a new text file!')
+    f.write(msg_to_file)
